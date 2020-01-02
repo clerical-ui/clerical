@@ -1,0 +1,25 @@
+{
+  "name": "clerical-demo",
+  "version": "1.0.0",
+  "description": "A simple demo of Clerical",
+  "main": "index.js",
+  "scripts": {
+    "prettier": "prettier --write \"src/**/*.{html,scss,json,ts,js}\" --write \"*.{html,scss,json,ts,js}\"",
+    "build": "rm -rf dist && webpack",
+    "start": "webpack-dev-server"
+  },
+  "author": "Tom Manion",
+  "license": "ISC",
+  "dependencies": {
+    "clerical": "../clerical"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^5.1.1",
+    "prettier": "^1.19.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  }
+}
