@@ -4,7 +4,11 @@ const config: IClericalConfig = {
     defaultPath: 'home',
     title: 'Clerical Demo',
     routes: [{
-        path: 'home'
+        path: 'home',
+        layout: {
+            type: 'bootstrap-grid',
+            components: []
+        }
     }]
 };
 const c = new Clerical(config);

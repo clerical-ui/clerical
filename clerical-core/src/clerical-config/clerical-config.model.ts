@@ -25,4 +25,23 @@ export interface IClericalConfigRoute {
      * The title to give the browser
      */
     title?: string;
+
+    /**
+     * Layout the route will 
+     */
+    layout?: string;
 }
+
+export interface IClericalConfigLayout {
+    /**
+     * The name of the registered layout to use
+     */
+    name: string;
+
+    /**
+     * The config for the layout (respectful of the registered layout's type)
+     */
+    config: IClericalConfigLayoutConfig;
+}
+
+export interface IClericalConfigLayoutConfig extends Object {}
