@@ -1,14 +1,14 @@
-import { Clerical, IClericalConfig } from '../../clerical/src/clerical';
+import { Clerical, IClericalConfig } from '../../clerical-core/src/clerical';
 
 const config: IClericalConfig = {
     defaultPath: 'home',
     title: 'Clerical Demo',
     routes: [{
         path: 'home',
-        layout: {
-            type: 'bootstrap-grid',
-            components: []
-        }
+        layout: [{
+            name: 'bootstrap-grid',
+            config: {}
+        }]
     }]
 };
 const c = new Clerical(config);

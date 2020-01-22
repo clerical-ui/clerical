@@ -27,9 +27,9 @@ export interface IClericalConfigRoute {
     title?: string;
 
     /**
-     * Layout the route will 
+     * Layout the route will use 
      */
-    layout?: string;
+    layout?: IClericalConfigLayout[];
 }
 
 export interface IClericalConfigLayout {
@@ -39,9 +39,9 @@ export interface IClericalConfigLayout {
     name: string;
 
     /**
-     * The config for the layout (respectful of the registered layout's type)
+     * The installed layouts can have their own properties
      */
-    config: IClericalConfigLayoutConfig;
+    [prop: string]: any;
 }
 
 export interface IClericalConfigLayoutConfig extends Object {}
