@@ -15,14 +15,15 @@
  * current under-construction element's definition.
  */
 (function () {
+    const w = window as any;
     if (
         // No Reflect, no classes, no need for shim because native custom elements
         // require ES2015 classes or Reflect.
-        window.Reflect === undefined ||
-        window.customElements === undefined ||
+        w.Reflect === undefined ||
+        w.customElements === undefined ||
         // The webcomponentsjs custom elements polyfill doesn't require
         // ES2015-compatible construction (`super()` or `Reflect.construct`).
-        (window.customElements as any).polyfillWrapFlushCallback
+        w.customElements.polyfillWrapFlushCallback
     ) {
         return;
     }
@@ -39,7 +40,7 @@
                 BuiltInHTMLElement, [], /** @type {!Function} */(this.constructor));
         }
     };
-    window.HTMLElement = wrapperForTheName['HTMLElement'] as any;
+    w.HTMLElement = wrapperForTheName['HTMLElement'] as any;
     HTMLElement.prototype = BuiltInHTMLElement.prototype;
     HTMLElement.prototype.constructor = HTMLElement;
     Object.setPrototypeOf(HTMLElement, BuiltInHTMLElement);

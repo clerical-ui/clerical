@@ -1,6 +1,5 @@
 import { Clerical, IClericalConfig } from '@clerical/core';
-import "@clerical/material-components";
-console.log('here');
+
 const config: IClericalConfig = {
     defaultPath: '/login',
     title: 'Clerical Demo',
@@ -8,7 +7,15 @@ const config: IClericalConfig = {
         path: '/login',
         title: 'Home',
         component: {
-            name: 'c-material-text-field'
+            name: 'c-input-text',
+            events: {
+                change(event) {
+                    console.log('change', event.target.value);
+                },
+                keyup(event) {
+                    console.log('keyup', event.target.value);
+                }
+            }
         }
     }]
 };
