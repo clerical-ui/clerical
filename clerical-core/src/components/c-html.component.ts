@@ -3,12 +3,14 @@ export interface IHTMLMeta {
     innerText?: string;
 }
 export class ClericalHTML extends HTMLElement {
-    meta: IHTMLMeta;
+    meta?: IHTMLMeta;
     connectedCallback() {
-        if (this.meta.innerText) {
-            this.innerText = this.meta.innerText;
-        } else if (this.meta.innerHTML) {
-            this.innerHTML = this.meta.innerHTML;
+        if (this.meta) {
+            if (this.meta.innerText) {
+                this.innerText = this.meta.innerText;
+            } else if (this.meta.innerHTML) {
+                this.innerHTML = this.meta.innerHTML;
+            }
         }
     }
 }

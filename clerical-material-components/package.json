@@ -1,11 +1,11 @@
 {
-  "name": "clerical-core",
+  "name": "clerical-material-components",
   "version": "0.0.0",
   "description": "",
   "keywords": [],
-  "main": "dist/clerical-core.umd.js",
-  "module": "dist/clerical-core.es5.js",
-  "typings": "dist/types/clerical-core.d.ts",
+  "main": "dist/clerical-material-components.umd.js",
+  "module": "dist/clerical-material-components.es5.js",
+  "typings": "dist/types/clerical-material-components.d.ts",
   "files": [
     "dist"
   ],
@@ -104,6 +104,7 @@
     "rollup-plugin-commonjs": "^9.1.8",
     "rollup-plugin-json": "^3.1.0",
     "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-scss": "^2.1.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-typescript2": "^0.18.0",
     "semantic-release": "^15.9.16",
@@ -118,6 +119,6 @@
     "typescript": "^3.0.3"
   },
   "dependencies": {
-    "@vaadin/router": "^1.6.0"
+    "material-components-web": "^4.0.0"
   }
 }

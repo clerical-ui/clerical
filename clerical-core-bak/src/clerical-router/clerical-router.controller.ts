@@ -1,8 +1,9 @@
-import { IClericalConfig } from './../clerical-main/clerical-config.model';
+import { IClericalConfig, IClericalConfigRoute } from './../clerical-main/clerical-config.model';
 import { Router } from '@vaadin/router';
 
 export class ClericalRouterController {
     router = new Router(this.target);
+    currentRouteConfig: IClericalConfigRoute;
     constructor(
         public target: Element
     ) { }
@@ -11,9 +12,9 @@ export class ClericalRouterController {
         const routesFormatted: Router.Route[] = config.routes.map(route => ({
             path: route.path,
             component: route.component.name,
-            action: (_: any, commands: any) => {
+            action: (_, commands) => {
                 // Override the vaaden component resolver to apply meta
-                commands.component = (c: any) => {
+                commands.component = (c) => {
                     const element = document.createElement(c) as any;
                     element.meta = route.component;
                     (this.router as any).__createdByRouter.set(element, true);
