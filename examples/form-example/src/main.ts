@@ -1,24 +1,31 @@
-import { Clerical, IClericalConfig } from '@clerical/core';
+import { Clerical, IClericalConfig } from '../../../clerical-core/src/clerical-core';
+import '../../../clerical-material-components';
+import '@material/mwc-button';
 
 const config: IClericalConfig = {
-    defaultPath: '/login',
-    title: 'Clerical Demo',
+    defaultPath: '/home',
     routes: [{
-        path: '/login',
+        path: '/home',
         title: 'Home',
-        component: {
-            name: 'c-input-text',
-            events: {
-                change(event) {
-                    console.log('change', event.target.value);
-                },
-                keyup(event) {
-                    console.log('keyup', event.target.value);
-                }
-            }
+        body: {
+            element: 'div',
+            id: 'home',
+            class: 'home',
+            c: [{
+                element: 'h1',
+                innerText: 'Please Login'
+            }, {
+                element: 'c-text-field',
+                id: 'username',
+                state: 'localStorage.username'
+            }, {
+                element: 'mwc-button',
+                outlined: true,
+                innerText: 'Hello'
+            }]
         }
     }]
 };
 
-const app = Clerical.start(document.body, config);
+const app = Clerical.startRouter(document.body, config);
 console.log(app.state);
