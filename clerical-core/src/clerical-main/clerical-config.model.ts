@@ -54,5 +54,14 @@ export interface IClericalConfigComponent {
 export interface IClericalConfigLayoutConfig extends Object {}
 
 export interface IClericalEventHandlers {
-  [eventName: string]: (event: any) => any
+  [eventName: string]: EventAction | EventAction[];
 }
+
+export type EventCallback = (event: Event | any) => any;
+export interface EventAliasHandler {
+  name: string;
+  arguments?: any[];
+}
+export type EventAliasHandlerCallback = (event: Event | any, ...args: any[]) => any;
+
+export type EventAction = EventCallback | EventAliasHandler;

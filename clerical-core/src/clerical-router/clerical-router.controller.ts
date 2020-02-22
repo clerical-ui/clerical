@@ -1,11 +1,10 @@
 import { IClericalConfig } from './../clerical-main/clerical-config.model'
 import { Router } from '@vaadin/router'
-import { Clerical } from '../clerical-main/clerical-controller'
 import { ClericalApp } from '../clerical-main/clerical-app'
 
 export class ClericalRouterController {
   router = new Router(this.target)
-  constructor(public target: Element) {}
+  constructor(public target: Element) { }
 
   start(config: IClericalConfig, app: ClericalApp): void {
     const routesFormatted: Router.Route[] = config.routes.map(route => ({
@@ -28,4 +27,13 @@ export class ClericalRouterController {
     }
     this.router.setRoutes(routesFormatted)
   }
+
+  async navigate(pathnameOrContext: string, options: INavigationOptions = {}) {
+    const shouldUpdateHistory = (options.shouldUpdateHistory !== undefined) ? options.shouldUpdateHistory : true;
+    return this.router.render(pathnameOrContext, shouldUpdateHistory);
+  }
+}
+
+export interface INavigationOptions {
+  shouldUpdateHistory?: boolean;
 }

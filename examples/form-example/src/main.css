@@ -1,0 +1,10 @@
+#login {
+    margin: 20vh auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+}
+
+#login > * {
+    margin-bottom: 20px;
+}

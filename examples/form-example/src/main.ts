@@ -1,31 +1,16 @@
-import { Clerical, IClericalConfig } from '../../../clerical-core/src/clerical-core';
-import '../../../clerical-material-components';
+import { TodoController } from './todo/todo.controller';
+import { Clerical } from '../../../clerical-core/src/clerical-core';
+import { appConfig } from './app.config';
+
+// Import Web Components
 import '@material/mwc-button';
+import '@material/mwc-textfield';
+import '@material/mwc-top-app-bar';
+import '@material/mwc-icon-button';
 
-const config: IClericalConfig = {
-    defaultPath: '/home',
-    routes: [{
-        path: '/home',
-        title: 'Home',
-        body: {
-            element: 'div',
-            id: 'home',
-            class: 'home',
-            c: [{
-                element: 'h1',
-                innerText: 'Please Login'
-            }, {
-                element: 'c-text-field',
-                id: 'username',
-                state: 'localStorage.username'
-            }, {
-                element: 'mwc-button',
-                outlined: true,
-                innerText: 'Hello'
-            }]
-        }
-    }]
-};
+// Start the application with the defined configuration
+const app = Clerical.startRouter(document.body, appConfig);
 
-const app = Clerical.startRouter(document.body, config);
-console.log(app.state);
+// Attach additional event handlers
+const todoController = new TodoController(app.state);
+app.eventRegistry.set('add-todo', (event) => todoController.addTodo(event));

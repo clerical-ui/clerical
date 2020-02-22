@@ -13,7 +13,10 @@
   "dependencies": {
     "@clerical/core": "../../clerical-core",
     "@clerical/material-components": "../../clerical-material-components",
-    "@material/mwc-button": "^0.13.0"
+    "@material/mwc-button": "^0.13.0",
+    "@material/mwc-icon-button": "^0.13.0",
+    "@material/mwc-textfield": "^0.13.0",
+    "@material/mwc-top-app-bar": "^0.13.0"
   },
   "devDependencies": {
     "ts-loader": "^6.2.1",

@@ -1,6 +1,5 @@
 import { Subject } from 'rxjs'
 import { filter, debounceTime } from 'rxjs/operators'
-import { StringUtil } from '../capabilities/string/string.util'
 import get from 'lodash/get'
 import set from 'lodash/set'
 
@@ -29,6 +28,11 @@ export class ClericalState {
   }
   getValue(path: string): any {
     return get(this.$, path)
+  }
+
+  observePath(path: string) {
+    return this.stateUpdate$
+      .pipe(filter(update => update.path === path));
   }
 
   private loadDefaultValue() {
