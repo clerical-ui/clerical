@@ -1,39 +1,53 @@
-import { IClericalConfig } from './../clerical-main/clerical-config.model'
-import { Router } from '@vaadin/router'
-import { ClericalApp } from '../clerical-main/clerical-app'
+import {
+  IClericalConfig,
+  IClericalConfigComponent,
+  IClericalConfigRoute
+} from './../clerical-main/clerical-config.model'
+import Route from 'route-parser'
 
 export class ClericalRouterController {
-  router = new Router(this.target)
-  constructor(public target: Element) { }
+  routes: string[] = []
+  currentRouteConfig?: IClericalConfigRoute
+  constructor(
+    public target: Element,
+    public config: IClericalConfig,
+    public render: (target: Element, config: IClericalConfigComponent) => HTMLElement
+  ) {}
 
-  start(config: IClericalConfig, app: ClericalApp): void {
-    const routesFormatted: Router.Route[] = config.routes.map(route => ({
-      path: route.path,
-      component: route.body.element,
-      action: (_: any, commands: any) => {
-        // Override the vaaden component resolver to apply meta
-        commands.component = (c: any) => {
-          document.title = route.title
-          const root = app.render(this.target, route.body)
-          return root
-        }
-      }
-    }))
-    if (config.defaultPath) {
-      routesFormatted.push({
-        path: '(.*)',
-        redirect: config.defaultPath
-      })
-    }
-    this.router.setRoutes(routesFormatted)
+  start(): void {
+    this.navigate(window.location.pathname, { shouldUpdateHistory: false })
   }
 
-  async navigate(pathnameOrContext: string, options: INavigationOptions = {}) {
-    const shouldUpdateHistory = (options.shouldUpdateHistory !== undefined) ? options.shouldUpdateHistory : true;
-    return this.router.render(pathnameOrContext, shouldUpdateHistory);
+  navigate(pathnameOrContext: string, options: INavigationOptions = {}) {
+    // 1. Get matching route
+    const route = this.config.routes.find(r => new Route(r.path).match(pathnameOrContext))
+
+    if (!route) {
+      // 1.5. If route not matched, navigate to default one if there is one. Otherwise, do nothing.
+      if (this.config.defaultPath && pathnameOrContext !== this.config.defaultPath) {
+        this.navigate(this.config.defaultPath, options)
+      }
+      return
+    }
+
+    // 2. Clear target's HTML and update title
+    document.title = route.title
+    this.target.innerHTML = ''
+
+    // 3. Update route URL
+    const shouldUpdateHistory =
+      options.shouldUpdateHistory !== undefined ? options.shouldUpdateHistory : true
+    if (shouldUpdateHistory) {
+      window.history.pushState(route, route.title, route.path)
+    }
+
+    this.currentRouteConfig = route
+
+    // 4. Render URL
+    return this.render(this.target, route.body)
   }
 }
 
 export interface INavigationOptions {
-  shouldUpdateHistory?: boolean;
+  shouldUpdateHistory?: boolean
 }

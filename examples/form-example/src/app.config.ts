@@ -72,12 +72,6 @@ export const appConfig: IClericalConfig = {
                 element: 'section',
                 id: 'todo-section',
                 events: {
-                    load() {
-                        console.log('loaded');
-                    },
-                    unload() {
-                        console.log('unloaded');
-                    },
                     keyup: {
                         name: 'add-todo'
                     }
@@ -89,10 +83,29 @@ export const appConfig: IClericalConfig = {
                     label: 'What needs to be done?'
                 }, {
                     element: 'div',
-                    c: [{
-                        element: 'cFor',
-
-                    }]
+                    cFor: {
+                        each: 'localStorage.todos',
+                        as: 'todo',
+                        indexAs: 'todoIndex',
+                        template: [{
+                            element: 'div',
+                            class: 'todo-item',
+                            c: [{
+                                element: 'div',
+                                class: 'todo-item-text',
+                                innerText: '{{todo.text}}'
+                            }, {
+                                element: 'mwc-button',
+                                outlined: true,
+                                innerText: 'X',
+                                events: {
+                                    click: {
+                                        name: 'remove-todo'
+                                    }
+                                }
+                            }]
+                        }]
+                    }
                 }]
             }]
         }

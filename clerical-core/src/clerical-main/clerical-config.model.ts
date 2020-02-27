@@ -43,6 +43,8 @@ export interface IClericalConfigComponent {
 
   c?: IClericalConfigComponent[]
 
+  cFor?: IClericalFor
+
   events?: IClericalEventHandlers
 
   /**
@@ -54,14 +56,21 @@ export interface IClericalConfigComponent {
 export interface IClericalConfigLayoutConfig extends Object {}
 
 export interface IClericalEventHandlers {
-  [eventName: string]: EventAction | EventAction[];
+  [eventName: string]: EventAction | EventAction[]
 }
 
-export type EventCallback = (event: Event | any) => any;
+export type EventCallback = (event: Event | any) => any
 export interface EventAliasHandler {
-  name: string;
-  arguments?: any[];
+  name: string
+  arguments?: any[]
 }
-export type EventAliasHandlerCallback = (event: Event | any, ...args: any[]) => any;
+export type EventAliasHandlerCallback = (event: Event | any, ...args: any[]) => any
 
-export type EventAction = EventCallback | EventAliasHandler;
+export type EventAction = EventCallback | EventAliasHandler
+
+export interface IClericalFor {
+  each: string
+  as: string
+  indexAs?: string
+  template: IClericalConfigComponent[]
+}

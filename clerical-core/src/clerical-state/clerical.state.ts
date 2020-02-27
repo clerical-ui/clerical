@@ -10,12 +10,12 @@ export class ClericalState {
   stateUpdate$ = new Subject<{ path: string; value: any; previousValue: any }>()
   constructor() {
     this.stateUpdate$
-      .pipe(filter(update => update.path.startsWith('localStorage.'), debounceTime(300)))
+      .pipe(filter(update => update.path.startsWith('localStorage'), debounceTime(300)))
       .subscribe(_ => {
         localStorage.setItem(this.lsKey, JSON.stringify(this.$.localStorage))
       })
     this.stateUpdate$
-      .pipe(filter(update => update.path.startsWith('sessionStorage.'), debounceTime(300)))
+      .pipe(filter(update => update.path.startsWith('sessionStorage'), debounceTime(300)))
       .subscribe(_ => {
         sessionStorage.setItem(this.ssKey, JSON.stringify(this.$.sessionStorage))
       })
@@ -23,16 +23,17 @@ export class ClericalState {
 
   updateValue(path: string, value: any): void {
     const previousValue = get(this.$, path)
-    set(this.$, path, value)
-    this.stateUpdate$.next({ path, value, previousValue })
+    if (previousValue !== value) {
+      set(this.$, path, value)
+      this.stateUpdate$.next({ path, value, previousValue })
+    }
   }
   getValue(path: string): any {
     return get(this.$, path)
   }
 
   observePath(path: string) {
-    return this.stateUpdate$
-      .pipe(filter(update => update.path === path));
+    return this.stateUpdate$.pipe(filter(update => update.path === path))
   }
 
   private loadDefaultValue() {
