@@ -54,7 +54,7 @@ TODO
 ### Sample Hello World
 
 
-`
+```javascript
 import { ClericalApp } from '@clerical/core';
 
 // 1. Import any web components
@@ -89,4 +89,4 @@ app.eventRegistry.set('hello-world-click', (event) => alert('Hello World from: '
 // 5. Start the app
 
 app.start();
-`
+```
