@@ -4,7 +4,12 @@ The minimal code, Contract-Driven UI web component framework.
 ## What is a Contract-Driven UI?
 TODO
 
-## Why should I use Clerical?
+## Why is Clerical different?
+Most web application frameworks encourage and expect UI code to include all business logic and functionality to be bundled into a single application. These applications can become massive and complex.
+
+With Clerical, configuration can be managed on the **server** rather than on the **client**. Moving elements around, hiding or displaying functionality based on the user type, and even event management can be all configured so that the UI application does not have to be touched unless there is a fundamental UX or styling change.
+
+Instead, the UI application can be deployed with the necessary web components and styling, and worry not about implementing all of the functionality.
 
 ## Getting Started
 To begin, first install Clerical Core with `npm install @clerical/core`. Clerical is built with TypeScript, so types are included within the installation.
