@@ -74,6 +74,7 @@ export const appConfig: IClericalConfig = {
         body: {                 // <== This is the element hierarchy to render
             element: 'h1',
             id: 'hello-world',
+            innerText: 'Hello World!',
             events: {           // <== This is where events get attached to the element
                 click: {
                     name: 'hello-world-click'
