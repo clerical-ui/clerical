@@ -1,4 +1,5 @@
-# Clerical
+![alt text](docs/assets/clerical-logo-text.png "Clerical")
+
 The minimal code, Contract-Driven UI web component framework.
 
 ## What is a Contract-Driven UI?
