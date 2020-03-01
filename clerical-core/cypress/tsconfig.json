@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "target": "es5",
+    "module":"es2015",
+    "lib": ["es2015", "es2016", "es2017", "dom"],
+    "strict": true,
+    "sourceMap": true,
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "typeRoots": [
+      "../node_modules/@types/assert",
+      "../node_modules/@types/color-name",
+      "../node_modules/@types/events",
+      "../node_modules/@types/glob",
+      "../node_modules/@types/highlight.js",
+      "../node_modules/@types/lodash",
+      "../node_modules/@types/minimatch",
+      "../node_modules/@types/normalize-package-data",
+      "../node_modules/@types/retry",
+      "../node_modules/@types/shelljs",
+      "../node_modules/@types/estree",
+      "../node_modules/@types/fs-extra",
+      "../node_modules/@types/handlebars",
+      "../node_modules/@types/marked",
+      "../node_modules/@types/node",
+      "../node_modules/@types/parse-json",
+      "../node_modules/@types/route-parser",
+      "../node_modules/@types/sizzle"
+    ]
+  },
+  "include": [
+    "../node_modules/cypress",
+    "../node_modules/cypress-cucumber-preprocessor",
+    "**/*"
+  ]
+}

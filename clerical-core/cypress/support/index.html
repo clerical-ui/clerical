@@ -1,0 +1,19 @@
+<html>
+
+<head>
+    <title>Test</title>
+</head>
+
+<body>
+    <script>
+        window.globalClerical = true; // Tell Clerical to set exports on the window for quick scripting
+        window.start = (config) => {
+            // Read config and run
+            const app = new window.ClericalApp(document.body, JSON.parse(localStorage.appConfig));
+            app.start();
+        };
+    </script>
+    <script src="../../dist/clerical-core.umd.js"></script>
+</body>
+
+</html>

@@ -35,3 +35,9 @@ export class ClericalApp {
     return this.component.setupComponent(target, config)
   }
 }
+
+const w = window as any
+if (w.globalClerical) {
+  w.ClericalApp = ClericalApp
+  w.ClericalComponent = ClericalComponent
+}

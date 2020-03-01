@@ -1,0 +1,11 @@
+{
+    "defaultPath": "/sample-input",
+    "routes": [{
+        "path": "/sample-input",
+        "title": "Sample Input",
+        "body": {
+            "element": "input",
+            "type": "text"
+        }
+    }]
+}
