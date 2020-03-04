@@ -25,6 +25,9 @@ export class TwoWayBindingController {
     } else {
       // Nothing to template
       e[key] = value
+      if (key === 'class') {
+        element.setAttribute('class', value)
+      }
     }
   }
 

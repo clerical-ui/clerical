@@ -1,3 +1,4 @@
+import { IClericalOptions } from './clerical-options.model'
 import { ComponentController } from './component/component.controller'
 import { ClericalEventRegistryController } from '../clerical-event-registry/clerical-event-registry.controller'
 import { ClericalRouterController } from '../clerical-router/clerical-router.controller'
@@ -25,7 +26,11 @@ export class ClericalApp {
   eventRegistry = ClericalEventRegistryController.createDefaultAppRegistry(this)
   component = new ComponentController(this.state, this.eventRegistry)
 
-  constructor(public target: Element, public config: IClericalConfig) {}
+  constructor(
+    public target: Element,
+    public config: IClericalConfig,
+    public options: IClericalOptions = {}
+  ) {}
 
   start(): void {
     return this.router.start()

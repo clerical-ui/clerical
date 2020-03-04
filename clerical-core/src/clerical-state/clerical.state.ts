@@ -1,24 +1,48 @@
+import { IStateOptions, IClericalOptions } from './../clerical-main/clerical-options.model'
 import { Subject } from 'rxjs'
 import { filter, debounceTime } from 'rxjs/operators'
 import get from 'lodash/get'
 import set from 'lodash/set'
 
 export class ClericalState {
-  private lsKey = 'state'
-  private ssKey = 'state'
+  static defaultOptions: IStateOptions = {
+    enabled: true,
+    localStorageKey: 'state',
+    sessionStorageKey: 'state',
+    storageDebounceTime: 300
+  }
+  private stateOptions: IStateOptions = {
+    ...ClericalState.defaultOptions,
+    ...this.options
+  }
+  private lsKey = this.stateOptions.localStorageKey!
+  private ssKey = this.stateOptions.sessionStorageKey!
   $: IClercialStateData = this.loadDefaultValue()
-  stateUpdate$ = new Subject<{ path: string; value: any; previousValue: any }>()
-  constructor() {
-    this.stateUpdate$
-      .pipe(filter(update => update.path.startsWith('localStorage'), debounceTime(300)))
-      .subscribe(_ => {
-        localStorage.setItem(this.lsKey, JSON.stringify(this.$.localStorage))
-      })
-    this.stateUpdate$
-      .pipe(filter(update => update.path.startsWith('sessionStorage'), debounceTime(300)))
-      .subscribe(_ => {
-        sessionStorage.setItem(this.ssKey, JSON.stringify(this.$.sessionStorage))
-      })
+  stateUpdate$ = new Subject<IStateUpdate>()
+
+  constructor(private options: IStateOptions) {
+    if (this.stateOptions.enabled) {
+      this.stateUpdate$
+        .pipe(
+          filter(
+            (update: IStateUpdate) => update.path.startsWith('localStorage'),
+            debounceTime(this.stateOptions.storageDebounceTime)
+          )
+        )
+        .subscribe((_: IStateUpdate) => {
+          localStorage.setItem(this.lsKey, JSON.stringify(this.$.localStorage))
+        })
+      this.stateUpdate$
+        .pipe(
+          filter(
+            (update: IStateUpdate) => update.path.startsWith('sessionStorage'),
+            debounceTime(this.stateOptions.storageDebounceTime)
+          )
+        )
+        .subscribe((_: IStateUpdate) => {
+          sessionStorage.setItem(this.ssKey, JSON.stringify(this.$.sessionStorage))
+        })
+    }
   }
 
   updateValue(path: string, value: any): void {
@@ -33,7 +57,7 @@ export class ClericalState {
   }
 
   observePath(path: string) {
-    return this.stateUpdate$.pipe(filter(update => update.path === path))
+    return this.stateUpdate$.pipe(filter((update: IStateUpdate) => update.path === path))
   }
 
   private loadDefaultValue() {
@@ -55,4 +79,10 @@ export interface IClercialStateData {
   localStorage: any
   sessionStorage: any
   [key: string]: any
+}
+
+export interface IStateUpdate {
+  path: string
+  value: any
+  previousValue: any
 }

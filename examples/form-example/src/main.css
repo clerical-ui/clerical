@@ -8,3 +8,24 @@
 #login > * {
     margin-bottom: 20px;
 }
+
+.todo-item {
+    display: block;
+    align-items: center;
+    width: 100%;
+}
+
+#todo {
+    width: 100%;
+}
+
+.todo-body {
+    display: flex;
+    align-items: center;
+}
+.todo-item {
+    margin: 5px;
+}
+.todo-item-text {
+    flex-grow: 1;
+}

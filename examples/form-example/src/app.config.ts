@@ -71,6 +71,11 @@ export const appConfig: IClericalConfig = {
             }, {
                 element: 'section',
                 id: 'todo-section',
+                style: {
+                    'padding-top': '40px',
+                    margin: '0 auto',
+                    'max-width': '600px'
+                },
                 events: {
                     keyup: {
                         name: 'add-todo'
@@ -83,6 +88,7 @@ export const appConfig: IClericalConfig = {
                     label: 'What needs to be done?'
                 }, {
                     element: 'div',
+                    class: 'todo-items',
                     cFor: {
                         each: 'localStorage.todos',
                         as: 'todo',
@@ -92,17 +98,23 @@ export const appConfig: IClericalConfig = {
                             class: 'todo-item',
                             c: [{
                                 element: 'div',
-                                class: 'todo-item-text',
-                                innerText: '{{todo.text}}'
-                            }, {
-                                element: 'mwc-button',
-                                outlined: true,
-                                innerText: 'X',
-                                events: {
-                                    click: {
-                                        name: 'remove-todo'
+                                class: 'todo-body',
+                                c: [{
+                                    element: 'div',
+                                    class: 'todo-item-text',
+                                    innerText: '{{todo.text}}'
+                                }, {
+                                    element: 'mwc-button',
+                                    outlined: true,
+                                    innerHTML: 'X',
+                                    events: {
+                                        click: {
+                                            name: 'remove-todo'
+                                        }
                                     }
-                                }
+                                }]
+                            }, {
+                                element: 'hr'
                             }]
                         }]
                     }

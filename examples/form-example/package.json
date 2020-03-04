@@ -16,7 +16,10 @@
     "@material/mwc-button": "^0.13.0",
     "@material/mwc-icon-button": "^0.13.0",
     "@material/mwc-textfield": "^0.13.0",
-    "@material/mwc-top-app-bar": "^0.13.0"
+    "@material/mwc-top-app-bar": "^0.13.0",
+    "@webcomponents/custom-elements": "^1.4.0",
+    "@webcomponents/shadydom": "^1.7.2",
+    "@webcomponents/webcomponentsjs": "^2.4.2"
   },
   "devDependencies": {
     "ts-loader": "^6.2.1",

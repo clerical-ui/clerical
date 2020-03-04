@@ -8,7 +8,7 @@ export class TodoController {
     addTodo(event: KeyboardEvent) {
         const target = event.target as HTMLInputElement;
         const text = target.value;
-        if (event.code === 'Enter' && text) {
+        if ([event.code, event.key].includes('Enter') && text) {
             const todos: ITodo[] = this.state.getValue('localStorage.todos') || [];
             this.state.updateValue('localStorage.todos', [...todos, {
                 createdDate: new Date(),
