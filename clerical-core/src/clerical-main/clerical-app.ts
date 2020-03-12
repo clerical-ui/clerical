@@ -7,11 +7,11 @@ import { ClericalState } from '../clerical-state/clerical.state'
 import '../capabilities/custom-events/unload/unload'
 
 export class ClericalComponent {
-  state = new ClericalState()
+  state = new ClericalState(this.options.state || {})
   eventRegistry = ClericalEventRegistryController.createDefaultComponentRegistry(this)
   component = new ComponentController(this.state, this.eventRegistry)
 
-  constructor() {}
+  constructor(public options: IClericalOptions = { state: {} }) {}
 
   render(target: Element, config: IClericalConfigComponent): HTMLElement {
     return this.component.setupComponent(target, config)
@@ -22,7 +22,7 @@ export class ClericalApp {
   router = new ClericalRouterController(this.target, this.config, (target, config) =>
     this.render(target, config)
   )
-  state = new ClericalState()
+  state = new ClericalState(this.options.state || {})
   eventRegistry = ClericalEventRegistryController.createDefaultAppRegistry(this)
   component = new ComponentController(this.state, this.eventRegistry)
 

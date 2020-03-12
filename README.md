@@ -44,14 +44,18 @@ export const appConfig: IClericalConfig = {
         path: '/home',          // <== This is the path to match
         title: 'Home',          // <== This is the title of the page
         body: {                 // <== This is the element hierarchy to render
-            element: 'h1',
-            id: 'hello-world',
-            innerText: 'Hello World!',
-            events: {           // <== This is where events get attached to the element
-                click: {
-                    name: 'hello-world-click'
+            element: 'div',
+            id: 'home-route',
+            c: [{               // <== Recursively set subcomponents. Configuration is attached to the Element in the DOM.
+                element: 'h1',
+                id: 'hello-world',
+                innerText: 'Hello World!',
+                events: {           // <== This is where events get attached to the element
+                    click: {
+                        name: 'hello-world-click'
+                    }
                 }
-            }
+            }]
         }
     }]
 }
@@ -95,7 +99,7 @@ export const componentConfig: IClericalConfigComponent = {
     }
 };
 
-// 3. Create the ClericalApp
+// 3. Create the ClericalComponent
 
 const c = new ClericalComponent();
 
@@ -103,7 +107,7 @@ const c = new ClericalComponent();
 
 c.eventRegistry.set('hello-world-load', (event) => alert('Hello World from: ' + event.target.id));
 
-// 5. Start the app
+// 5. Render the component
 
 c.render(document.getElementById('parent'), componentConfig);
 ```
