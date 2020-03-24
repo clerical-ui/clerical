@@ -11,7 +11,7 @@ jobs:
           steps:
             - run: cd clerical-core && npm install
             - run: cd clerical-core && npm test
-  publish:
+  semantic-release:
     branches:
       only:
         - master
@@ -21,7 +21,7 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
-            - run: cd clerical-core && npm publish
+            - run: cd clerical-core && npm run semantic-release
 workflows:
     build-and-test:
       jobs:
