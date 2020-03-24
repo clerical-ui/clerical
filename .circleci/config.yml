@@ -18,7 +18,8 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
-            - run: npm i semantic-release-cli && cd clerical-core && npm run semantic-release
+            - run: npm install
+            - run: cd clerical-core && npm run semantic-release
 workflows:
     build-and-test:
       jobs:
