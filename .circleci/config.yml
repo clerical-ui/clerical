@@ -12,14 +12,14 @@ jobs:
             - run: cd clerical-core && npm install
             - run: cd clerical-core && npm test
   semantic-release:
-    branches:
-      only:
-        - master
     executor:
       name: node/default
     steps:
       - checkout
       - node/with-cache:
+          branches:
+            only:
+              - master
           steps:
             - run: cd clerical-core && npm run semantic-release
 workflows:
