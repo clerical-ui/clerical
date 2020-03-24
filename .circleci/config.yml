@@ -21,7 +21,7 @@ jobs:
           cache-key: clerical-core/package.json
           steps:
             - run: cd clerical-core && npm install
-            - run: cd clerical-core && npm run semantic-release
+            - run: cd clerical-core && npm run semantic-release -- --publish
 workflows:
     build-and-test:
       jobs:
