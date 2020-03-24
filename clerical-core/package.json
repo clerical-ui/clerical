@@ -138,5 +138,6 @@
     },
     "cypress-cucumber-preprocessor": {
         "nonGlobalStepDefinitions": false
-    }
+    },
+    "private": false
 }
