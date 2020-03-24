@@ -15,18 +15,20 @@ export class ClericalRouterController {
     ) {}
 
     start(): void {
-        this.navigate(window.location.pathname, { shouldUpdateHistory: false });
+        this.navigate(window.location.pathname, { shouldUpdateHistory: false, defaultNavigation: true });
     }
 
     navigate(pathnameOrContext: string, options: INavigationOptions = {}) {
         // 1. Get matching route
         const route = this.config.routes.find((r) => new Route(r.path).match(pathnameOrContext));
 
-        if (!route) {
+        if (!route && options.defaultNavigation) {
             // 1.5. If route not matched, navigate to default one if there is one. Otherwise, do nothing.
             if (this.config.defaultPath && pathnameOrContext !== this.config.defaultPath) {
                 this.navigate(this.config.defaultPath, options);
             }
+        }
+        if (!route) {
             return;
         }
 
@@ -49,4 +51,5 @@ export class ClericalRouterController {
 
 export interface INavigationOptions {
     shouldUpdateHistory?: boolean;
+    defaultNavigation?: boolean;
 }
