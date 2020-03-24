@@ -8,6 +8,7 @@ jobs:
     steps:
       - checkout
       - node/with-cache:
+          cache-key: clerical-core/package.json
           steps:
             - run: cd clerical-core && npm install
             - run: cd clerical-core && npm test
@@ -17,8 +18,9 @@ jobs:
     steps:
       - checkout
       - node/with-cache:
+          cache-key: clerical-core/package.json
           steps:
-            - run: npm install
+            - run: cd clerical-core && npm install
             - run: cd clerical-core && npm run semantic-release
 workflows:
     build-and-test:
