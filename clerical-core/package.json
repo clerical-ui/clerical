@@ -1,140 +1,140 @@
 {
-    "name": "@clerical/core",
-    "version": "0.0.0-development",
-    "description": "The Contract-Driven UI Web Component Framework",
-    "keywords": [],
-    "main": "dist/clerical-core.umd.js",
-    "module": "dist/clerical-core.es5.js",
-    "typings": "dist/types/clerical-core.d.ts",
-    "files": [
-        "dist"
-    ],
-    "author": "Tom Manion <thomas.w.manion@accenture.com>",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/clerical-ui/clerical"
-    },
-    "license": "MIT",
-    "engines": {
-        "node": ">=6.0.0"
-    },
-    "scripts": {
-        "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
-        "prebuild": "rimraf dist",
-        "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
-        "start": "rollup -c rollup.config.ts -w",
-        "test": "jest --coverage",
-        "test:watch": "jest --coverage --watch",
-        "test:prod": "npm run lint && npm run test -- --no-cache",
-        "deploy-docs": "ts-node tools/gh-pages-publish",
-        "report-coverage": "cat ./coverage/lcov.info | coveralls",
-        "commit": "git-cz",
-        "semantic-release": "semantic-release",
-        "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
-        "precommit": "lint-staged",
-        "travis-deploy-once": "travis-deploy-once",
-        "cypress": "cypress open",
-        "prepush": "npm run test:prod && npm run build",
-        "commitmsg": "commitlint -E HUSKY_GIT_PARAMS",
-        "prettier": "prettier --config .prettierrc --write \"src/**/*.{html,css,json,ts,js}\" --write \"*.{html,css,json,ts,js}\""
-    },
-    "lint-staged": {
-        "{src,test}/**/*.ts": [
-            "prettier --write",
-            "git add"
-        ]
-    },
-    "config": {
-        "commitizen": {
-            "path": "node_modules/cz-conventional-changelog"
-        }
-    },
-    "jest": {
-        "transform": {
-            ".(ts|tsx)": "ts-jest"
-        },
-        "testEnvironment": "node",
-        "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-        "moduleFileExtensions": [
-            "ts",
-            "tsx",
-            "js"
-        ],
-        "coveragePathIgnorePatterns": [
-            "/node_modules/",
-            "/test/"
-        ],
-        "coverageThreshold": {
-            "global": {
-                "branches": 90,
-                "functions": 95,
-                "lines": 95,
-                "statements": 95
-            }
-        },
-        "collectCoverageFrom": [
-            "src/*.{js,ts}"
-        ]
-    },
-    "prettier": {
-        "semi": false,
-        "singleQuote": true
-    },
-    "commitlint": {
-        "extends": [
-            "@commitlint/config-conventional"
-        ]
-    },
-    "devDependencies": {
-        "@commitlint/cli": "^7.1.2",
-        "@commitlint/config-conventional": "^7.1.2",
-        "@types/jest": "^23.3.2",
-        "@types/lodash": "^4.14.149",
-        "@types/node": "^10.11.0",
-        "@types/route-parser": "^0.1.3",
-        "colors": "^1.3.2",
-        "commitizen": "^3.0.0",
-        "coveralls": "^3.0.2",
-        "cross-env": "^5.2.0",
-        "cypress": "^4.1.0",
-        "cypress-cucumber-preprocessor": "^2.0.1",
-        "cypress-localstorage-commands": "^1.1.6",
-        "cz-conventional-changelog": "^2.1.0",
-        "husky": "^1.0.1",
-        "jest": "^23.6.0",
-        "jest-config": "^23.6.0",
-        "lint-staged": "^8.0.0",
-        "lodash.camelcase": "^4.3.0",
-        "prettier": "^1.19.1",
-        "prompt": "^1.0.0",
-        "replace-in-file": "^3.4.2",
-        "rimraf": "^2.6.2",
-        "rollup": "^0.67.0",
-        "rollup-plugin-commonjs": "^9.1.8",
-        "rollup-plugin-json": "^3.1.0",
-        "rollup-plugin-node-resolve": "^3.4.0",
-        "rollup-plugin-sourcemaps": "^0.4.2",
-        "rollup-plugin-typescript2": "^0.26.0",
-        "semantic-release": "^17.0.4",
-        "shelljs": "^0.8.3",
-        "travis-deploy-once": "^5.0.9",
-        "ts-jest": "^23.10.2",
-        "ts-node": "^7.0.1",
-        "tsify": "^4.0.1",
-        "tslint": "^5.11.0",
-        "tslint-config-prettier": "^1.15.0",
-        "tslint-config-standard": "^8.0.1",
-        "typedoc": "^0.12.0",
-        "typescript": "^3.0.3",
-        "webpack": "^4.41.6"
-    },
-    "dependencies": {
-        "@vaadin/router": "^1.6.0",
-        "lodash": "^4.17.15",
-        "route-parser": "0.0.5",
-        "rxjs": "^6.5.4"
-    },
-    "cypress-cucumber-preprocessor": {
-        "nonGlobalStepDefinitions": false
+  "name": "@clerical/core",
+  "version": "0.0.0-development",
+  "description": "The Contract-Driven UI Web Component Framework",
+  "keywords": [],
+  "main": "dist/clerical-core.umd.js",
+  "module": "dist/clerical-core.es5.js",
+  "typings": "dist/types/clerical-core.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": "Tom Manion <thomas.w.manion@accenture.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clerical-ui/clerical"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "prebuild": "rimraf dist",
+    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
+    "start": "rollup -c rollup.config.ts -w",
+    "test": "jest --coverage",
+    "test:watch": "jest --coverage --watch",
+    "test:prod": "npm run lint && npm run test -- --no-cache",
+    "deploy-docs": "ts-node tools/gh-pages-publish",
+    "report-coverage": "cat ./coverage/lcov.info | coveralls",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release",
+    "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
+    "precommit": "lint-staged",
+    "travis-deploy-once": "travis-deploy-once",
+    "cypress": "cypress open",
+    "prepush": "npm run test:prod && npm run build",
+    "commitmsg": "commitlint -E HUSKY_GIT_PARAMS",
+    "prettier": "prettier --config .prettierrc --write \"src/**/*.{html,css,json,ts,js}\" --write \"*.{html,css,json,ts,js}\""
+  },
+  "lint-staged": {
+    "{src,test}/**/*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
     }
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 95,
+        "lines": 95,
+        "statements": 95
+      }
+    },
+    "collectCoverageFrom": [
+      "src/*.{js,ts}"
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.1.2",
+    "@commitlint/config-conventional": "^7.1.2",
+    "@types/jest": "^23.3.2",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^10.11.0",
+    "@types/route-parser": "^0.1.3",
+    "colors": "^1.3.2",
+    "commitizen": "^3.0.0",
+    "coveralls": "^3.0.2",
+    "cross-env": "^5.2.0",
+    "cypress": "^4.1.0",
+    "cypress-cucumber-preprocessor": "^2.0.1",
+    "cypress-localstorage-commands": "^1.1.6",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^1.0.1",
+    "jest": "^23.6.0",
+    "jest-config": "^23.6.0",
+    "lint-staged": "^8.0.0",
+    "lodash.camelcase": "^4.3.0",
+    "prettier": "^1.19.1",
+    "prompt": "^1.0.0",
+    "replace-in-file": "^3.4.2",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.67.0",
+    "rollup-plugin-commonjs": "^9.1.8",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-typescript2": "^0.26.0",
+    "semantic-release": "^17.0.4",
+    "shelljs": "^0.8.3",
+    "travis-deploy-once": "^5.0.9",
+    "ts-jest": "^23.10.2",
+    "ts-node": "^7.0.1",
+    "tsify": "^4.0.1",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-config-standard": "^8.0.1",
+    "typedoc": "^0.12.0",
+    "typescript": "^3.0.3",
+    "webpack": "^4.41.6"
+  },
+  "dependencies": {
+    "@vaadin/router": "^1.6.0",
+    "lodash": "^4.17.15",
+    "route-parser": "0.0.5",
+    "rxjs": "^6.5.4"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false
+  }
 }
