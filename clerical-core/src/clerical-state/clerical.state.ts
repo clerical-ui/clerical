@@ -26,7 +26,7 @@ export class ClericalState {
         .pipe(
           filter(
             (update: IStateUpdate) => update.path.startsWith('localStorage'),
-            debounceTime(this.stateOptions.storageDebounceTime)
+            debounceTime(this.stateOptions.storageDebounceTime!)
           )
         )
         .subscribe((_: IStateUpdate) => {
@@ -36,7 +36,7 @@ export class ClericalState {
         .pipe(
           filter(
             (update: IStateUpdate) => update.path.startsWith('sessionStorage'),
-            debounceTime(this.stateOptions.storageDebounceTime)
+            debounceTime(this.stateOptions.storageDebounceTime!)
           )
         )
         .subscribe((_: IStateUpdate) => {
