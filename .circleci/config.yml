@@ -24,6 +24,8 @@ workflows:
       jobs:
         - build-and-test
         - semantic-release:
+            requires:
+              - build-and-test
             filters:
               branches:
                 only: master

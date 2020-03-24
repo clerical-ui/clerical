@@ -1,0 +1,11 @@
+{
+  "name": "clerical-sandbox",
+  "version": "1.0.0",
+  "description": "Clerical Sandbox enables testing different, simple contracts in the browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tom Manion",
+  "license": "ISC"
+}
