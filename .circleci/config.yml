@@ -9,8 +9,8 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
-            - run: npm install
-            - run: npm test
+            - run: cd clerical-core && npm install
+            - run: cd clerical-core && npm test
 workflows:
     build-and-test:
       jobs:
