@@ -11,6 +11,17 @@ jobs:
           steps:
             - run: cd clerical-core && npm install
             - run: cd clerical-core && npm test
+  publish:
+    branches:
+      only:
+        - master
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: cd clerical-core && npm publish
 workflows:
     build-and-test:
       jobs:
