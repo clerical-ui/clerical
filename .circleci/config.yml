@@ -17,12 +17,13 @@ jobs:
     steps:
       - checkout
       - node/with-cache:
-          branches:
-            only:
-              - master
           steps:
             - run: cd clerical-core && npm run semantic-release
 workflows:
     build-and-test:
       jobs:
         - build-and-test
+        - semantic-release:
+          filters:
+            branches:
+              only: master
