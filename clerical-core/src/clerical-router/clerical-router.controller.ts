@@ -20,7 +20,7 @@ export class ClericalRouterController {
 
     navigate(pathnameOrContext: string, options: INavigationOptions = {}) {
         // 1. Get matching route
-        const route = this.config.routes.find((r) => new Route(r.path).match(pathnameOrContext));
+        const route = this.config.routes.find((r) => !!new Route(r.path).match(pathnameOrContext));
 
         if (!route && options.defaultNavigation) {
             // 1.5. If route not matched, navigate to default one if there is one. Otherwise, do nothing.
