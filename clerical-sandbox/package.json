@@ -1,11 +1,26 @@
 {
-  "name": "clerical-sandbox",
-  "version": "1.0.0",
-  "description": "Clerical Sandbox enables testing different, simple contracts in the browser",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Tom Manion",
-  "license": "ISC"
+    "name": "clerical-sandbox",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo No testing setup yet",
+        "start": "webpack-dev-server --config webpack.config.js",
+        "build": "webpack --config webpack.config.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@clerical/core": "0.0.0-development",
+        "@webcomponents/webcomponentsjs": "^2.4.3"
+    },
+    "devDependencies": {
+        "copy-webpack-plugin": "^5.1.1",
+        "ts-loader": "^6.2.2",
+        "typescript": "^3.8.3",
+        "webpack": "^4.42.1",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-server": "^3.10.3"
+    }
 }

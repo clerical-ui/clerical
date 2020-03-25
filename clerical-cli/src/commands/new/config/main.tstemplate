@@ -1,0 +1,14 @@
+// Shims
+import '@webcomponents/webcomponentsjs';
+
+import { ClericalApp } from '@clerical/core';
+import { appConfig } from './app.config';
+
+// Import Web Components
+// TODO
+
+// Create the application with the defined configuration
+const app = new ClericalApp(document.getElementById('root')!, appConfig);
+
+// Start the router
+app.router.start();

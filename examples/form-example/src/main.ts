@@ -1,8 +1,5 @@
 // Shims
 import '@webcomponents/webcomponentsjs';
-//import '@webcomponents/custom-elements'
-//import '@webcomponents/custom-elements/src/native-shim'
-//import '@webcomponents/shadydom'
 
 import { ClericalApp } from '../../../clerical-core';
 import { TodoController } from './todo/todo.controller';

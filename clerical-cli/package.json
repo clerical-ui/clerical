@@ -1,0 +1,57 @@
+{
+  "name": "@clerical/cli",
+  "description": "The Clerical CLI tool",
+  "version": "0.0.2",
+  "author": "Tom Manion @thomaswmanion",
+  "bin": {
+    "clerical": "./bin/run"
+  },
+  "bugs": "https://github.com/clerical-ui/clerical/issues",
+  "dependencies": {
+    "@oclif/command": "^1.5.19",
+    "@oclif/config": "^1.14.0",
+    "@oclif/plugin-help": "^2.2.3",
+    "fs-extra": "^9.0.0",
+    "tslib": "^1.11.1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.22.2",
+    "@types/fs-extra": "^8.1.0",
+    "@types/node": "^10.17.17",
+    "globby": "^10.0.2",
+    "ts-node": "^8.8.1",
+    "typescript": "^3.8.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/clerical-ui/clerical",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "clerical",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "clerical-ui/clerical",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme && npm run cp-config",
+    "cp-config": "mkdir -p lib/commands/new/config && cp -R src/commands/new/config/* lib/commands/new/config/",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts",
+  "private": false
+}
