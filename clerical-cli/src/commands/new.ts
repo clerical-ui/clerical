@@ -45,7 +45,7 @@ export default class New extends Command {
             { type: 'cp', file: 'app.config.ts', to: 'src' },
             { type: 'cp', file: 'webpack.config.js', to: '.' },
             { type: 'cmd', cmd: 'npm install @clerical/core @webcomponents/webcomponentsjs --save' },
-            { type: 'cmd', cmd: 'npm install ts-loader typescript webpack webpack-cli webpack-dev-server copy-webpack-plugin --save-dev' },
+            { type: 'cmd', cmd: 'npm install rimraf ts-loader style-loader css-loader typescript webpack webpack-cli webpack-dev-server copy-webpack-plugin --save-dev' },
             { type: 'script', name: 'start', cmd: 'webpack-dev-server --config webpack.config.js' },
             { type: 'script', name: 'build', cmd: 'webpack --config webpack.config.js' },
             { type: 'script', name: 'test', cmd: 'echo No testing setup yet' }

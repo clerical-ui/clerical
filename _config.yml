@@ -1,1 +1,9 @@
 theme: jekyll-theme-cayman
+title: Clerical
+description: The Minimal Code, Contract-Driven UI, Web Component Framework
+show_downloads: True
+navigation:
+  - title: Home
+    url: /
+  - title: Setup
+    url: setup

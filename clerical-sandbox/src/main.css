@@ -1,0 +1,17 @@
+mwc-top-app-bar {
+    --mdc-theme-primary: black;
+    --mdc-theme-on-primary: white;
+}
+mwc-textarea {
+    --mdc-theme-primary: black;
+}
+.full-height {
+    height: 100%;
+}
+html,body,main {
+    height:100%;
+    margin: 0;
+}
+#viewport {
+    height: calc(100% - 64px);
+}

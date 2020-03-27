@@ -1,15 +1,21 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
+const prod = process.env.NODE_ENV === 'production' || process.argv.join().includes('--production');
 
 module.exports = {
     entry: './src/main.ts',
+    mode: prod ? 'production' : 'development',
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
-                exclude: /node_modules/,
+                exclude: /node_modules/
             },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            }
         ],
     },
     resolve: {
@@ -24,13 +30,13 @@ module.exports = {
         compress: true,
         port: 9000,
         historyApiFallback: {
-          index: 'index.html'
+            index: 'index.html'
         }
     },
     plugins: [
         new CopyPlugin([
             { from: 'src/index.html', to: 'index.html' },
-            { from: 'src/main.css', to: 'main.css' }
+            { from: 'src/assets', to: 'assets' }
         ]),
     ]
 };

@@ -3,6 +3,7 @@ import '@webcomponents/webcomponentsjs';
 
 import { ClericalApp } from '@clerical/core';
 import { appConfig } from './app.config';
+import './main.css';
 
 // Import Web Components
 // TODO
