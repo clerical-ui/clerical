@@ -1,0 +1,21 @@
+---
+layout: archive
+---
+
+{{ content }}
+
+<h3 class="archive__subtitle">Clerical</h3>
+
+<p>Get started with Clerical now! <a href="https://stackblitz.com/edit/clerical-starter">Try it out for yourself</a> or view the <a href="/docs/quick-start-guide/">Quick-Start Guide</a>.</p>
+
+{% if paginator %}
+  {% assign posts = paginator.posts %}
+{% else %}
+  {% assign posts = site.posts %}
+{% endif %}
+
+{% for post in posts %}
+  {% include archive-single.html %}
+{% endfor %}
+
+{% include paginator.html %}

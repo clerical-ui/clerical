@@ -1,0 +1,43 @@
+# main links
+main:
+  - title: "Quick-Start Guide"
+    url: /docs/quick-start-guide/
+  - title: "Docs"
+    url: /docs/
+  - title: "Sandbox"
+    url: https://stackblitz.com/edit/clerical-starter
+  - title: "About"
+    url: /about/
+
+# documentation links
+docs:
+  - title: Getting Started
+    children:
+      - title: "Quick-Start Guide"
+        url: /docs/quick-start-guide/
+      - title: "Installation"
+        url: /docs/structure/
+  - title: Contract Structure
+    children:
+      - title: "Overview"
+        url: /docs/contract-structure-overview/
+      - title: "Web Components and Metadata"
+        url: /docs/web-components-and-metadata/
+      - title: "Events"
+        url: '/docs/events/'
+  - title: State Management
+    children:
+      - title: "Built-in State Management"
+        url: /docs/built-in-state-management/
+      - title: "Custom State Management"
+        url: '/docs/custom-state-management/'
+  - title: Design Patterns
+    children:
+      - title: "Controllers and Events"
+        url: /docs/controllers-and-events/
+      - title: "Web Components First"
+        url: '/docs/web-components-first/'
+  - title: Contributing
+    children:
+      - title: "Contributing"
+        url: /docs/contributing/
