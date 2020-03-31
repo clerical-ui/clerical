@@ -1,21 +1,134 @@
----
-layout: archive
----
+<div id="intro-section">
+  <div id="flex-intro-section" style="height: 100%; display: flex; align-items: center;">
+    <div id="left-section" style="width: 50%; display: flex; align-items: end; flex-direction: row-reverse;">
+      <img id="home-intro-logo" src="/clerical-logo.svg">
+    </div>
+    <div id="right-section">
+      <h1>Clerical</h1>
+      <h2 style="margin-top: 0;">The Contract-Driven UI Framework</h2>
+      <p style="margin-top: 0;"><a href="/docs/" style="text-decoration: none; color: #FFD700;">Read the docs to get
+          started.</a></p>
+    </div>
+  </div>
 
+
+</div>
 {{ content }}
 
-<h3 class="archive__subtitle">Clerical</h3>
-
-<p>Get started with Clerical now! <a href="https://stackblitz.com/edit/clerical-starter">Try it out for yourself</a> or view the <a href="/docs/quick-start-guide/">Quick-Start Guide</a>.</p>
-
 {% if paginator %}
-  {% assign posts = paginator.posts %}
+{% assign posts = paginator.posts %}
 {% else %}
-  {% assign posts = site.posts %}
+{% assign posts = site.posts %}
 {% endif %}
 
 {% for post in posts %}
-  {% include archive-single.html %}
+{% include archive-single.html %}
 {% endfor %}
 
 {% include paginator.html %}
+
+<style>
+  #home-intro-logo {
+    display: block;
+    max-height: 50vh;
+    width: auto;
+    height: auto;
+  }
+
+  #intro-section {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+  }
+
+  body {
+    margin: 0;
+    background: white;
+    color: black;
+    transition: 0.2s all;
+  }
+
+
+  @media (max-width: 950px) {
+    #flex-intro-section {
+      flex-direction: column;
+    }
+
+    div#left-section {
+      margin-top: 20vh;
+      width: initial;
+    }
+
+    section.detail-section {
+      flex-direction: column !important;
+    }
+
+    .r50 {
+      width: auto !important;
+      height: 40vh;
+    }
+  }
+
+  section.detail-section {
+    min-height: 400px;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .section-img {
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  p {
+    font-size: 1.6em;
+  }
+
+  .section {
+    flex-grow: 1;
+  }
+
+  .white-section {
+    background-color: white;
+    margin: 15px;
+    padding: 0 15px;
+    border: 4px solid #302FC0;
+    border-radius: 20px;
+  }
+
+  .r50 {
+    width: 50%;
+  }
+
+  .section-sep {
+    background-color: black;
+    width: 100%;
+    min-height: 20px;
+    height: 20vh;
+  }
+
+  .bottom-section {
+    background-color: white;
+    padding: 45px;
+    width: 100%;
+    min-height: 30vh;
+  }
+
+  .bottom-h {
+    font-size: 4em;
+    text-align: center;
+  }
+
+  .bottom-p {
+    font-size: 2em;
+  }
+</style>
+
+</script>

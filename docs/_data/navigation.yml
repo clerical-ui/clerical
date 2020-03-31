@@ -6,8 +6,8 @@ main:
     url: /docs/
   - title: "Sandbox"
     url: https://stackblitz.com/edit/clerical-starter
-  - title: "About"
-    url: /about/
+  - title: "Code"
+    url: https://github.com/clerical-ui/clerical
 
 # documentation links
 docs:
