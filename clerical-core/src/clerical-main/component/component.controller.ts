@@ -29,7 +29,14 @@ export class ComponentController {
             return this.state.$;
         });
 
-        e.connectedCallback = () => element.dispatchEvent(new Event('connectedCallback'));
+        // Attach default Events to Web Component Life Cycle Callbacks
+        ['connectedCallback', 'disconnectedCallback', 'adoptedCallback', 'attributeChangedCallback'].forEach(
+            (lifeCycleCallback) => {
+                if (!e[lifeCycleCallback]) {
+                    e[lifeCycleCallback] = () => element.dispatchEvent(new Event(lifeCycleCallback));
+                }
+            }
+        );
         // Copy properties so they can be referenced by the element
         Object.keys(config)
             .filter((key) => !['style', 'state'].includes(key))
