@@ -9,7 +9,15 @@ toc: true
 The minimal code, Contract-Driven UI web component framework.
 
 ## What is a Contract-Driven UI?
-TODO
+<p>A Contract-Driven UI is an architectural pattern which allows the UI to focus on the <strong>building
+        parameterized components</strong>, enabling your application to be <strong>constructed in JSON</strong>.
+</p>
+<p>The UI implements <strong>components and event handlers</strong> based on the theme of your application. A
+    <strong>contract, or
+        configuration object</strong> in the form of JSON, is supplied to specify how your application should be
+    constructed
+    and the parameters associated to those components and event handlers to be built correctly for your user.
+</p>
 
 ## Why is Clerical different?
 Most web application frameworks encourage and expect UI code to include all business logic and functionality to be bundled into a single application. These applications can become massive and complex.
