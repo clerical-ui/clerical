@@ -24,14 +24,15 @@ export default class New extends Command {
         const { name } = args;
         const { directory, force } = flags;
         if (!name) {
-            console.log('name', name);
             this.error('A name is required.');
         }
         const dir = join(process.cwd(), directory.replace(/{name}/, name));
-        if (fs.existsSync(dir) && !force) {
-            this.error(`The directory already exists: ${dir}. Please use force or remove the directory if you would like to use it.`);
+        if (!flags['dry-run']) {
+            if (fs.existsSync(dir) && !force) {
+                this.error(`The directory already exists: ${dir}. Please use force or remove the directory if you would like to use it.`);
+            }
+            fs.ensureDirSync(dir);    
         }
-        fs.ensureDirSync(dir);
 
         this.log(`Generating a project with the name ${name} in the directory ${dir}`);
         const commands = [

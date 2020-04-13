@@ -24,7 +24,7 @@ export interface IClericalConfigRoute {
     /**
      * Layout the route will use
      */
-    body: IClericalConfigComponent;
+    body: IClericalConfigComponent | IClericalConfigComponent[];
 }
 
 export interface IClericalConfigComponent {

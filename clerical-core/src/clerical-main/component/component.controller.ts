@@ -49,6 +49,15 @@ export class ComponentController {
             });
         }
 
+        if (e.apphref && ctx && ctx.router) {
+            e.href = e.apphref;
+            element.addEventListener('click', (ele) => {
+                ele.preventDefault();
+                ctx.router.navigate(e.apphref);
+                return false;
+            });
+        }
+
         if (config.state) {
             element.addEventListener('input', (event: Event) => {
                 const value = (event.target as any).value;

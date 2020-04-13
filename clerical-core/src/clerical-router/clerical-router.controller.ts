@@ -15,7 +15,8 @@ export class ClericalRouterController {
     ) {}
 
     start(): void {
-        this.navigate(window.location.pathname, { shouldUpdateHistory: false, defaultNavigation: true });
+        const options = { shouldUpdateHistory: false, defaultNavigation: true, _isFirst: true };
+        this.navigate(window.location.pathname, options);
     }
 
     navigate(pathnameOrContext: string, options: INavigationOptions = {}) {
@@ -41,11 +42,16 @@ export class ClericalRouterController {
         if (shouldUpdateHistory) {
             window.history.pushState(route, route.title, route.path);
         }
+        if ((options as any)._isFirst) {
+            window.history.replaceState(route, route.title, route.path);
+        }
 
         this.currentRouteConfig = route;
 
         // 4. Render URL
-        return this.render(this.target, route.body);
+        return Array.isArray(route.body)
+            ? route.body.map((body) => this.render(this.target, body))
+            : this.render(this.target, route.body);
     }
 }
 

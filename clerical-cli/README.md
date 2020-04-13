@@ -19,7 +19,7 @@ $ npm install -g @clerical/cli
 $ clerical COMMAND
 running command...
 $ clerical (-v|--version|version)
-@clerical/cli/0.0.2 darwin-x64 node-v13.6.0
+@clerical/cli/0.0.3 darwin-x64 node-v13.6.0
 $ clerical --help [COMMAND]
 USAGE
   $ clerical COMMAND
@@ -66,5 +66,5 @@ EXAMPLE
   $ clerical new myclericalapp
 ```
 
-_See code: [src/commands/new.ts](https://github.com/clerical-ui/clerical/blob/v0.0.2/src/commands/new.ts)_
+_See code: [src/commands/new.ts](https://github.com/clerical-ui/clerical/blob/v0.0.3/src/commands/new.ts)_
 <!-- commandsstop -->

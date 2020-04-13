@@ -1,5 +1,3 @@
-import './capabilities/shim/native-shim';
-
 export * from './clerical-main/clerical-config.model';
 export * from './clerical-main/clerical-app';
 export * from './clerical-state/clerical.state';

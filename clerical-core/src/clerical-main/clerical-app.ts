@@ -13,8 +13,8 @@ export class ClericalComponent {
 
     constructor(public options: IClericalOptions = { state: {} }) {}
 
-    render(target: Element, config: IClericalConfigComponent): HTMLElement {
-        return this.component.setupComponent(target, config);
+    render(target: Element, config: IClericalConfigComponent, ctx?: any): HTMLElement {
+        return this.component.setupComponent(target, config, ctx);
     }
 }
 
@@ -31,7 +31,7 @@ export class ClericalApp {
     }
 
     private render(target: Element, config: IClericalConfigComponent): HTMLElement {
-        return this.component.setupComponent(target, config);
+        return this.component.setupComponent(target, config, { router: this.router });
     }
 }
 
